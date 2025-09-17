@@ -1,26 +1,25 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 import useTheme from "@/hooks/useTheme";
+import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
 const TabsLayout = () => {
-  const {colors}=useTheme();
+  const { colors } = useTheme();
+
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: {
-          backgroundColor: "#1e293b",
+          backgroundColor: colors.surface,
           borderTopWidth: 1,
           borderTopColor: colors.border,
-          height: 91,
-          paddingTop: 10,
+          height: 90,
           paddingBottom: 30,
+          paddingTop: 10,
         },
         tabBarLabelStyle: {
-          fontSize: 18,
+          fontSize: 12,
           fontWeight: "600",
         },
         headerShown: false,
@@ -29,19 +28,17 @@ const TabsLayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          title: "todos",
+          title: "Todos",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="flash-outline" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="setting"
+        name="settings"
         options={{
           title: "Settings",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Ionicons name="settings" size={size} color={color} />,
         }}
       />
     </Tabs>
