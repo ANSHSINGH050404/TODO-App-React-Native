@@ -5,10 +5,25 @@ import { Ionicons } from "@expo/vector-icons";
 
 const TabsLayout = () => {
   return (
-    <Tabs screenOptions={{
-        tabBarActiveTintColor:'red',
-        tabBarInactiveTintColor:"green"
-    }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "red",
+        tabBarInactiveTintColor: "green",
+        tabBarStyle: {
+          backgroundColor: "#1e293b",
+          borderTopWidth: 1,
+          borderTopColor: "yellow",
+          height: 91,
+          paddingTop: 10,
+          paddingBottom: 30,
+        },
+        tabBarLabelStyle: {
+          fontSize: 18,
+          fontWeight: "600",
+        },
+        headerShown: false,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
@@ -19,11 +34,11 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="setting"
         options={{
           title: "Settings",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="flash-outline" size={size} color={color} />
+            <Ionicons name="settings" size={size} color={color} />
           ),
         }}
       />
